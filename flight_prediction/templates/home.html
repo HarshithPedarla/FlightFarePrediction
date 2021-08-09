@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% block content %} {{ my_form.media }}
+
+<div
+  class="form-group card p-4"
+  style="background-color: rgba(241, 239, 239, 0.4)"
+>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <div class="row">
+      <div class="col-md-6">
+        <label class="col-12 col-form-label" for="id_{{ my_form.Source.name }}"
+          >{{ my_form.Source.label }}</label
+        >
+
+        {{my_form.Source}}
+      </div>
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Destination.name }}"
+          >{{ my_form.Destination.label }}</label
+        >
+        {{ my_form.Destination }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Journey_Date.name }}"
+          >{{ my_form.Journey_Date.label }}</label
+        >
+        {{my_form.Journey_Date}}
+      </div>
+      <div class="col-md-6">
+        <label class="col-12 col-form-label" for="id_{{ my_form.Airline.name }}"
+          >{{ my_form.Airline.label }}</label
+        >
+        {{ my_form.Airline }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Departure_Time.name }}"
+          >{{ my_form.Departure_Time.label }}</label
+        >
+        {{my_form.Departure_Time}}
+      </div>
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Arrival_Time.name }}"
+          >{{ my_form.Arrival_Time.label }}</label
+        >
+        {{my_form.Arrival_Time}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Duration_hour.name }}"
+          >{{ my_form.Duration_hour.label }}</label
+        >
+        <input
+          type="{{ my_form.Duration_hour.field.widget.input_type }}"
+          class="form-control"
+          name="{{ my_form.Duration_hour.name }}"
+          id="id_{{ my_form.Duration_hour.name }}"
+          value="{{ my_form.Duration_hour.value|default:'' }}"
+        />
+      </div>
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Duration_min.name }}"
+          >{{ my_form.Duration_min.label }}</label
+        >
+        <input
+          type="{{ my_form.Duration_min.field.widget.input_type }}"
+          class="form-control"
+          name="{{ my_form.Duration_min.name }}"
+          id="id_{{ my_form.Duration_min.name }}"
+          value="{{ my_form.Duration_min.value|default:'' }}"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label
+          class="col-12 col-form-label"
+          for="id_{{ my_form.Total_Stops.name }}"
+          >{{ my_form.Total_Stops.label }}</label
+        >
+        <input
+          type="{{ my_form.Total_Stops.field.widget.input_type }}"
+          class="form-control"
+          name="{{ my_form.Total_Stops.name }}"
+          id="id_{{ my_form.Total_Stops.name }}"
+          value="{{ my_form.Total_Stops.value|default:'' }}"
+        />
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="offset-md-3 col-md-6">
+        <input
+          type="submit"
+          value="Predict"
+          class="btn btn-primary form-control"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
